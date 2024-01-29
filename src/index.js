@@ -1,28 +1,22 @@
 const express = require("express");
-const {
-  seedMiceDB,
-  seedCagesDB,
-  clearDataDB,
-  addMiceToCageDB,
-} = require("./repositories/seedFunctions");
-
 require("./config/db");
+const { seedDataInitDB } = require("./repositories/seedFunctions");
+const mouseRoutes = require("./routes/mouseRoutes");
+const cageRoutes = require("./routes/cageRoutes");
+const baseRoutes = require("./routes/baseRoutes");
+
 const app = express();
 app.use(express.json());
 
-const seedDataInitDB = async () => {
-  try {
-    await clearDataDB();
-    const cages = await seedCagesDB();
-    const mice = await seedMiceDB(cages);
-    await addMiceToCageDB(cages, mice);
-    console.log("Successfully seeded data!!");
-  } catch (err) {
-    console.error("Error while seeding data", err);
-  }
-};
+// Inital DATA Seeding
 seedDataInitDB();
 
+// ENDPOINTS
+app.use("/mice", mouseRoutes);
+app.use("/cages", cageRoutes);
+app.use("/", baseRoutes);
+
+// PORT and server initialization
 const PORT = 4001;
 app.listen(PORT, () => {
   console.log(`[***] Server listening on http://localhost:${PORT} [***]`);

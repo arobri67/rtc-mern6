@@ -58,4 +58,16 @@ const addMiceToCageDB = async (cages, mice) => {
   }
 };
 
-module.exports = { clearDataDB, seedMiceDB, seedCagesDB, addMiceToCageDB };
+const seedDataInitDB = async () => {
+  try {
+    await clearDataDB();
+    const cages = await seedCagesDB();
+    const mice = await seedMiceDB(cages);
+    await addMiceToCageDB(cages, mice);
+    console.log("Successfully seeded data!!");
+  } catch (err) {
+    console.error("Error while seeding data", err);
+  }
+};
+
+module.exports = { seedDataInitDB };
