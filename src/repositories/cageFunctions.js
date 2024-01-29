@@ -10,4 +10,10 @@ const getCageByIdDB = async (id) => {
   return cage;
 };
 
-module.exports = { getAllCagesDB, getCageByIdDB };
+const createCageDB = async (payload) => {
+  const newCage = new Cage(payload);
+  await newCage.save();
+  return newCage;
+};
+
+module.exports = { getAllCagesDB, getCageByIdDB, createCageDB };

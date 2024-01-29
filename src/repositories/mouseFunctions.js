@@ -10,4 +10,10 @@ const getMouseByIdDB = async (id) => {
   return mouse;
 };
 
-module.exports = { getAllMiceDB, getMouseByIdDB };
+const createMouseDB = async (payload) => {
+  const newMouse = new Mouse(payload);
+  await newMouse.save();
+  return newMouse;
+};
+
+module.exports = { getAllMiceDB, getMouseByIdDB, createMouseDB };

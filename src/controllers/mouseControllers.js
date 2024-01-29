@@ -1,6 +1,7 @@
 const {
   getAllMiceDB,
   getMouseByIdDB,
+  createMouseDB,
 } = require("../repositories/mouseFunctions");
 
 //GET ALL
@@ -17,4 +18,11 @@ const getMouseById = async (req, res) => {
   res.status(200).json({ data: mouse });
 };
 
-module.exports = { getAllMice, getMouseById };
+//POST
+const createMouse = async (req, res) => {
+  const payload = req.body;
+  const newMouse = await createMouseDB(payload);
+  res.status(201).json({ data: newMouse });
+};
+
+module.exports = { getAllMice, getMouseById, createMouse };
