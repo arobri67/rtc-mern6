@@ -16,4 +16,9 @@ const createCageDB = async (payload) => {
   return newCage;
 };
 
-module.exports = { getAllCagesDB, getCageByIdDB, createCageDB };
+const updateCageDB = async (id, payload) => {
+  const updatedCage = await Cage.findByIdAndUpdate(id, payload, { new: true });
+  return updatedCage;
+};
+
+module.exports = { getAllCagesDB, getCageByIdDB, createCageDB, updateCageDB };

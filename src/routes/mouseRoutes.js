@@ -4,6 +4,7 @@ const {
   getAllMice,
   getMouseById,
   createMouse,
+  updateMouse,
 } = require("../controllers/mouseControllers");
 
 //GET ALL
@@ -12,5 +13,8 @@ router.get("/:id", getMouseById);
 
 //POST
 router.post("/", createMouse);
+
+//PUT
+router.put("/:id", updateMouse);
 
 module.exports = router;

@@ -1,7 +1,9 @@
+const { updateCageDB } = require("../repositories/cageFunctions");
 const {
   getAllMiceDB,
   getMouseByIdDB,
   createMouseDB,
+  updateMouseDB,
 } = require("../repositories/mouseFunctions");
 
 //GET ALL
@@ -25,4 +27,12 @@ const createMouse = async (req, res) => {
   res.status(201).json({ data: newMouse });
 };
 
-module.exports = { getAllMice, getMouseById, createMouse };
+//PUT
+const updateMouse = async (req, res) => {
+  const { id } = req.params;
+  const payload = req.body;
+  const updatedMouse = await updateMouseDB(id, payload);
+  res.status(201).json({ data: updatedMouse });
+};
+
+module.exports = { getAllMice, getMouseById, createMouse, updateMouse };

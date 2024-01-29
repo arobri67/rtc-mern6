@@ -16,4 +16,9 @@ const createMouseDB = async (payload) => {
   return newMouse;
 };
 
-module.exports = { getAllMiceDB, getMouseByIdDB, createMouseDB };
+const updateMouseDB = async (id, payload) => {
+  const updatedMouse = Mouse.findByIdAndUpdate(id, payload, { new: true });
+  return updatedMouse;
+};
+
+module.exports = { getAllMiceDB, getMouseByIdDB, createMouseDB, updateMouseDB };

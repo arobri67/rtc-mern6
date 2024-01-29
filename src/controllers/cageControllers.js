@@ -2,6 +2,7 @@ const {
   getAllCagesDB,
   getCageByIdDB,
   createCageDB,
+  updateCageDB,
 } = require("../repositories/cageFunctions");
 
 //GET ALL
@@ -17,11 +18,19 @@ const getCageById = async (req, res) => {
   res.status(200).json({ data: cage });
 };
 
+//POST
 const createCage = async (req, res) => {
   const payload = req.body;
-  console.log(payload);
   const newCage = await createCageDB(payload);
   res.status(201).json({ data: newCage });
 };
 
-module.exports = { getAllCages, getCageById, createCage };
+//PUT
+const updateCage = async (req, res) => {
+  const { id } = req.params;
+  const payload = req.body;
+  const updatedCage = await updateCageDB(id, payload);
+  res.status(201).json({ data: updatedCage });
+};
+
+module.exports = { getAllCages, getCageById, createCage, updateCage };
