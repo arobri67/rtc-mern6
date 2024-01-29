@@ -21,4 +21,14 @@ const updateCageDB = async (id, payload) => {
   return updatedCage;
 };
 
-module.exports = { getAllCagesDB, getCageByIdDB, createCageDB, updateCageDB };
+const deleteCageDB = async (id) => {
+  await Cage.findByIdAndDelete(id);
+};
+
+module.exports = {
+  getAllCagesDB,
+  getCageByIdDB,
+  createCageDB,
+  updateCageDB,
+  deleteCageDB,
+};

@@ -21,4 +21,14 @@ const updateMouseDB = async (id, payload) => {
   return updatedMouse;
 };
 
-module.exports = { getAllMiceDB, getMouseByIdDB, createMouseDB, updateMouseDB };
+const deleteMouseDB = async (id) => {
+  await Mouse.findByIdAndDelete(id);
+};
+
+module.exports = {
+  getAllMiceDB,
+  getMouseByIdDB,
+  createMouseDB,
+  updateMouseDB,
+  deleteMouseDB,
+};

@@ -1,9 +1,10 @@
-const { updateCageDB } = require("../repositories/cageFunctions");
+const { updateCageDB, deleteCageDB } = require("../repositories/cageFunctions");
 const {
   getAllMiceDB,
   getMouseByIdDB,
   createMouseDB,
   updateMouseDB,
+  deleteMouseDB,
 } = require("../repositories/mouseFunctions");
 
 //GET ALL
@@ -35,4 +36,17 @@ const updateMouse = async (req, res) => {
   res.status(201).json({ data: updatedMouse });
 };
 
-module.exports = { getAllMice, getMouseById, createMouse, updateMouse };
+//DELETE
+const deleteMouse = async (req, res) => {
+  const { id } = req.params;
+  deleteMouseDB(id);
+  res.status(201).send("Mouse deleted successfully");
+};
+
+module.exports = {
+  getAllMice,
+  getMouseById,
+  createMouse,
+  updateMouse,
+  deleteMouse,
+};

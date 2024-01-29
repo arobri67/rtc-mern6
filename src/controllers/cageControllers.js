@@ -3,6 +3,7 @@ const {
   getCageByIdDB,
   createCageDB,
   updateCageDB,
+  deleteCageDB,
 } = require("../repositories/cageFunctions");
 
 //GET ALL
@@ -33,4 +34,17 @@ const updateCage = async (req, res) => {
   res.status(201).json({ data: updatedCage });
 };
 
-module.exports = { getAllCages, getCageById, createCage, updateCage };
+//DELETE
+const deleteCage = async (req, res) => {
+  const { id } = req.params;
+  deleteCageDB(id);
+  res.status(201).send("Cage deleted successfully");
+};
+
+module.exports = {
+  getAllCages,
+  getCageById,
+  createCage,
+  updateCage,
+  deleteCage,
+};
