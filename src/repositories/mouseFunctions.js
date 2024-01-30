@@ -1,5 +1,4 @@
 const { Mouse } = require("../models/mice");
-const { Cage } = require("../models/cages");
 
 //GET all mice
 const getAllMiceDB = async () => {
@@ -15,9 +14,8 @@ const getMouseByIdDB = async (id) => {
 
 //GET cage of a mouse
 const getCageOfMouseDB = async (id) => {
-  const mouse = await Mouse.findById(id);
-  const cage = await Cage.findById(mouse.cage_id.toString());
-  return cage;
+  const cage = await Mouse.findById(id).populate("cage_id");
+  return cage.cage_id;
 };
 
 //POST create a mouse

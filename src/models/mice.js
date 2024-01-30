@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//const { Cage } = require("./cages");
 
 const mouseSchema = new mongoose.Schema({
   identifier: Number,

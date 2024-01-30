@@ -27,8 +27,7 @@ const getMouseById = async (req, res) => {
 const getCageOfMouse = async (req, res) => {
   const { id } = req.params;
   const cage = await getCageOfMouseDB(id);
-  const { mice, ...rest } = cage.toObject();
-  res.status(200).json({ data: rest });
+  res.status(200).json({ data: cage });
 };
 
 //POST

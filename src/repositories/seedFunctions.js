@@ -13,7 +13,7 @@ const seedCagesDB = async () => {
     const cages = await Cage.create(seedData.cages);
     return cages;
   } catch (err) {
-    "Error while adding cage data DB", err;
+    console.error("Error while adding cage data DB", err);
   }
 };
 
@@ -34,7 +34,7 @@ const seedMiceDB = async (cages) => {
     );
     return mice;
   } catch (err) {
-    console.log(" Error while adding data with cage Id to DB", err);
+    console.error(" Error while adding data with cage Id to DB", err);
   }
 };
 
@@ -47,9 +47,6 @@ const addMiceToCageDB = async (cages, mice) => {
       if (String(mouse.cage_id) === String(cage._id)) {
         cageMice.push({
           _id: mouse._id,
-          identifier: mouse.identifier,
-          earPunch: mouse.earPunch,
-          sex: mouse.sex,
         });
       }
     }

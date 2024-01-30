@@ -15,14 +15,8 @@ const getCageByIdDB = async (id) => {
 
 //GET all mice in a cage
 const getAllMiceInACageDB = async (id) => {
-  const cage = await Cage.findById(id);
-  //console.log(cage.mice[0]._id.toString());
-  const miceList = [];
-  for (i = 0; i < cage.mice.length; i++) {
-    const mouse = cage.mice[i];
-    miceList.push(await Mouse.findById(mouse._id.toString()));
-  }
-  return miceList;
+  const cage = await Cage.findById(id).populate("mice");
+  return cage.mice;
 };
 
 const createCageDB = async (payload) => {
