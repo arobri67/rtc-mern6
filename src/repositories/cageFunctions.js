@@ -15,7 +15,12 @@ const getCageByIdDB = async (id) => {
 
 //GET all mice in a cage
 const getAllMiceInACageDB = async (id) => {
-  const cage = await Cage.findById(id).populate("mice");
+  const cage = await Cage.findById(id).populate({
+    path: "mice",
+    model: "Mouse",
+    select: "-cage_id -__v",
+  });
+
   return cage.mice;
 };
 

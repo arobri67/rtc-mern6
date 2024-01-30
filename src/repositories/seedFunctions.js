@@ -47,6 +47,7 @@ const addMiceToCageDB = async (cages, mice) => {
       if (String(mouse.cage_id) === String(cage._id)) {
         cageMice.push({
           _id: mouse._id,
+          identifier: mouse.identifier,
         });
       }
     }
