@@ -182,7 +182,7 @@ const seedData = {
     {
       name: "Stock POMC-Cre males",
       location: "SPF Room 1",
-      rack: "Rack 1",
+      rack: "Rack 01",
       type: "Stock",
       diet: "Normal diet",
       enrichment: "Normal",
@@ -190,7 +190,7 @@ const seedData = {
     {
       name: "Stock POMC-Cre females",
       location: "SPF Room 1",
-      rack: "Rack 2",
+      rack: "Rack 02",
       type: "Stock",
       diet: "Normal diet",
       enrichment: "Normal",
@@ -198,7 +198,7 @@ const seedData = {
     {
       name: "Breeding POMC-Cre",
       location: "SPF Room 2",
-      rack: "Rack 1",
+      rack: "Rack 01",
       type: "Breeding",
       diet: "Normal diet",
       enrichment: "Normal",
@@ -206,7 +206,7 @@ const seedData = {
     {
       name: "Breeding wild-type",
       location: "SPF Room 2",
-      rack: "Rack 2",
+      rack: "Rack 02",
       type: "Breeding",
       diet: "Normal diet",
       enrichment: "Normal",

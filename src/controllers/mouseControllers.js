@@ -1,4 +1,3 @@
-const { updateCageDB, deleteCageDB } = require("../repositories/cageFunctions");
 const {
   getAllMiceDB,
   getMouseByIdDB,
@@ -10,7 +9,9 @@ const {
 //GET ALL
 const getAllMice = async (req, res) => {
   const mouse = await getAllMiceDB();
-  res.status(200).json({ data: mouse });
+  res
+    .status(200)
+    .json({ data: mouse.sort((a, b) => a.identifier - b.identifier) });
 };
 
 //GET by ID

@@ -9,7 +9,7 @@ const {
 //GET ALL
 const getAllCages = async (req, res) => {
   const cage = await getAllCagesDB();
-  res.status(200).json({ data: cage });
+  res.status(200).json({ data: cage.sort((a, b) => a.type - b.type) });
 };
 
 //GET by ID
