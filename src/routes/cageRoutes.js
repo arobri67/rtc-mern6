@@ -5,12 +5,14 @@ const {
   createCage,
   updateCage,
   deleteCage,
+  getAllMiceInACage,
 } = require("../controllers/cageControllers");
 const router = express.Router();
 
 //GET ALL
 router.get("/", getAllCages);
 router.get("/:id", getCageById);
+router.get("/mice-list/:id", getAllMiceInACage);
 
 //POST
 router.post("/", createCage);

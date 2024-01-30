@@ -6,19 +6,24 @@ const {
   createMouse,
   updateMouse,
   deleteMouse,
+  getCageOfMouse,
 } = require("../controllers/mouseControllers");
 
-//GET ALL
+//GET
+//ALL mice
 router.get("/", getAllMice);
+//mouse by id
 router.get("/:id", getMouseById);
+// cage from a mouse
+router.get("/cage/:id", getCageOfMouse);
 
-//POST
+//POST create a new mouse
 router.post("/", createMouse);
 
-//PUT
+//PUT update a mouse
 router.put("/:id", updateMouse);
 
-//DELETE
+//DELETE a mouse
 router.delete("/:id", deleteMouse);
 
 module.exports = router;

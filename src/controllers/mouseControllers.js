@@ -4,6 +4,7 @@ const {
   createMouseDB,
   updateMouseDB,
   deleteMouseDB,
+  getCageOfMouseDB,
 } = require("../repositories/mouseFunctions");
 
 //GET ALL
@@ -20,6 +21,14 @@ const getMouseById = async (req, res) => {
   const { id } = req.params;
   const mouse = await getMouseByIdDB(id);
   res.status(200).json({ data: mouse });
+};
+
+//GET cage of a mouse
+const getCageOfMouse = async (req, res) => {
+  const { id } = req.params;
+  const cage = await getCageOfMouseDB(id);
+  const { mice, ...rest } = cage.toObject();
+  res.status(200).json({ data: rest });
 };
 
 //POST
@@ -50,4 +59,5 @@ module.exports = {
   createMouse,
   updateMouse,
   deleteMouse,
+  getCageOfMouse,
 };
