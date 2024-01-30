@@ -35,6 +35,30 @@ const updateCageDB = async (id, payload) => {
   const updatedCage = await Cage.findByIdAndUpdate(id, payload, { new: true });
   return updatedCage;
 };
+const addMouseToCageDB = async (id, mouseId) => {
+  const updatedCage = await Cage.findById(id);
+  const mouse = await Mouse.findById(mouseId);
+  const isMousePresentInCage = updatedCage.mice.some(
+    (currentMouse) => currentMouse._id.toString() === mouse._id.toString()
+  );
+  if (!isMousePresentInCage) {
+    updatedCage.mice.push({
+      identifier: mouse.identifier,
+      _id: mouse._id,
+      earPunch: mouse.earPunch,
+      sex: mouse.sex,
+    });
+    mouse.cage_id = updatedCage._id;
+  } else {
+    updatedCage.mice = updatedCage.mice.filter(
+      (currentMouse) => currentMouse._id.toString() !== mouse._id.toString()
+    );
+    mouse.cage_id = null;
+  }
+  await updatedCage.save();
+  await mouse.save();
+  return updatedCage;
+};
 
 const deleteCageDB = async (id) => {
   await Cage.findByIdAndDelete(id);
@@ -47,4 +71,5 @@ module.exports = {
   updateCageDB,
   deleteCageDB,
   getAllMiceInACageDB,
+  addMouseToCageDB,
 };

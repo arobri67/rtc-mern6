@@ -5,6 +5,7 @@ const {
   updateCageDB,
   deleteCageDB,
   getAllMiceInACageDB,
+  addMouseToCageDB,
 } = require("../repositories/cageFunctions");
 
 //GET ALL
@@ -20,26 +21,34 @@ const getCageById = async (req, res) => {
   res.status(200).json({ data: cage });
 };
 
-//GET all mouse in a cage
+//GET all mice in a cage
 const getAllMiceInACage = async (req, res) => {
   const { id } = req.params;
   const mice = await getAllMiceInACageDB(id);
   res.status(200).json({ data: mice });
 };
 
-//POST
+//POST create a cage
 const createCage = async (req, res) => {
   const payload = req.body;
   const newCage = await createCageDB(payload);
   res.status(201).json({ data: newCage });
 };
 
-//PUT
+//PUT update a cage
 const updateCage = async (req, res) => {
   const { id } = req.params;
   const payload = req.body;
   const updatedCage = await updateCageDB(id, payload);
   res.status(201).json({ data: updatedCage });
+};
+//PUT add a mouse to a cage
+const addMouseToCage = async (req, res) => {
+  const { id } = req.params;
+  const { mouseId } = req.body;
+  const updatedCage = await addMouseToCageDB(id, mouseId);
+  const { mice, rest } = updatedCage;
+  res.status(201).json({ data: mice });
 };
 
 //DELETE
@@ -56,4 +65,5 @@ module.exports = {
   updateCage,
   deleteCage,
   getAllMiceInACage,
+  addMouseToCage,
 };

@@ -6,21 +6,27 @@ const {
   updateCage,
   deleteCage,
   getAllMiceInACage,
+  addMouseToCage,
 } = require("../controllers/cageControllers");
 const router = express.Router();
 
-//GET ALL
+//GET
+//ALL
 router.get("/", getAllCages);
+//cage by id
 router.get("/:id", getCageById);
+//all mice in a cage
 router.get("/mice-list/:id", getAllMiceInACage);
 
-//POST
+//POST create a cage
 router.post("/", createCage);
 
-//PUT
+//PUT update a cage
 router.put("/:id", updateCage);
+//add a mouse to a cage (if it is already in the cage it will be removed)
+router.put("/add-mouse-to-cage/:id", addMouseToCage);
 
-//DELETE
+//DELETE remove a cage
 router.delete("/:id", deleteCage);
 
 module.exports = router;

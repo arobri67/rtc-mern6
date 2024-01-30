@@ -14,7 +14,7 @@ const {
 router.get("/", getAllMice);
 //mouse by id
 router.get("/:id", getMouseById);
-// cage from a mouse
+//cage from a mouse
 router.get("/cage/:id", getCageOfMouse);
 
 //POST create a new mouse
