@@ -118,7 +118,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
   - **URL:** `/cages`
   - **Method:** `POST`
   - **Body Parameters:**  
-    (minmum one key)
+    (minmum one key)  
     `name:` "cage name",
     `location:` "cage location",
     `rack:` "cage rack",
@@ -131,7 +131,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
   - **URL:** `/cages/<cage-id>`
   - **Method:** `PUT`
   - **Body Parameters:**  
-    (minmum one key)
+    (minmum one key)  
     `name:` "cage name",
     `location:` "cage location",
     `rack:` "cage rack",
@@ -142,7 +142,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
     - **URL:** `/cages/add-mouse-to-cage/<cage-id>`
     - **Method:** `PUT`
     - **Body Parameters:**  
-      (minmum one key)
+      (minmum one key)  
       `name:` "cage name",
       `location:` "cage location",
       `rack:` "cage rack",
