@@ -52,7 +52,7 @@ npm start
   - **URL:** `/mice`
   - **Method:** `POST`
   - **Body Parameters:**  
-    (minmum one key)
+    (minimum one key)
     - `identifier`: mouse number identifier,
     - `earPunch`: ear punch identifier,
     - `strain`: strain name,
@@ -67,7 +67,7 @@ npm start
   - **URL:** `/mice/<mouse-id>`
   - **Method:** `PUT`
   - **Body Parameters:**  
-    (minmum one key)
+    (minimum one key)
     - `identifier`: "mouse number identifier",
     - `earPunch`: "ear punch identifier",
     - `strain`: "strain name",
@@ -94,7 +94,7 @@ npm start
     - `action`: "add" or "delete",
     - `cageId`: "ID of the cage to add or delete",
 
-It is will add or delete the cage_id field of the mouse. At the same time it will update the mice field of the corresponding cage.
+It will add or delete the cage_id field of the mouse. At the same time it will update the mice field of the corresponding cage.
 
 #### **Cages Endpoints**
 
@@ -118,7 +118,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
   - **URL:** `/cages`
   - **Method:** `POST`
   - **Body Parameters:**  
-    (minmum one key)  
+    (minimum one key)  
     `name:` "cage name",  
     `location:` "cage location",  
     `rack:` "cage rack",  
@@ -131,7 +131,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
   - **URL:** `/cages/<cage-id>`
   - **Method:** `PUT`
   - **Body Parameters:**  
-    (minmum one key)  
+    (minimum one key)  
     `name:` "cage name",  
     `location:` "cage location",  
     `rack:` "cage rack",  
@@ -142,7 +142,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
     - **URL:** `/cages/add-mouse-to-cage/<cage-id>`
     - **Method:** `PUT`
     - **Body Parameters:**  
-      (minmum one key)  
+      (minimum one key)  
       `name:` "cage name",  
       `location:` "cage location",  
       `rack:` "cage rack",  
@@ -150,7 +150,7 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
       `diet:` "diet in the cage",  
       `enrichement:` "type of enrichement",
 
-This will add mouse id into the mice of a given cage and update the cage_id of this mouse. If the mouse is already present in the cage, it will be removed and the cage_id of this mouse will be set to null.
+It will add mouse id into the mice field of a given cage and update the cage_id of this mouse. If the mouse is already present in the cage, it will be removed and the cage_id of this mouse will be set to null.
 
 - **Delete a cage:**
   - **URL:** `/cages/<cage-id>`
