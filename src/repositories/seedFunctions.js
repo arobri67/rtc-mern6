@@ -13,7 +13,7 @@ const seedCagesDB = async () => {
     const cages = await Cage.create(seedData.cages);
     return cages;
   } catch (err) {
-    console.error("Error while adding cage data DB", err);
+    console.error("Error in seedCagesDB", err);
   }
 };
 
@@ -34,25 +34,29 @@ const seedMiceDB = async (cages) => {
     );
     return mice;
   } catch (err) {
-    console.error(" Error while adding data with cage Id to DB", err);
+    console.error("Error in seedMiceDB", err);
   }
 };
 
 const addMiceToCageDB = async (cages, mice) => {
-  for (let i = 0; i < cages.length; i++) {
-    const cage = cages[i];
-    const cageMice = [];
-    for (let j = 0; j < mice.length; j++) {
-      const mouse = mice[j];
-      if (String(mouse.cage_id) === String(cage._id)) {
-        cageMice.push({
-          _id: mouse._id,
-          identifier: mouse.identifier,
-        });
+  try {
+    for (let i = 0; i < cages.length; i++) {
+      const cage = cages[i];
+      const cageMice = [];
+      for (let j = 0; j < mice.length; j++) {
+        const mouse = mice[j];
+        if (String(mouse.cage_id) === String(cage._id)) {
+          cageMice.push({
+            _id: mouse._id,
+            identifier: mouse.identifier,
+          });
+        }
       }
+      cage.mice = cageMice;
+      await cage.save();
     }
-    cage.mice = cageMice;
-    await cage.save();
+  } catch (err) {
+    console.error("Error in addMiceToCageDB", err);
   }
 };
 
@@ -62,9 +66,9 @@ const seedDataInitDB = async () => {
     const cages = await seedCagesDB();
     const mice = await seedMiceDB(cages);
     await addMiceToCageDB(cages, mice);
-    console.log("Successfully seeded data!!");
+    console.log("Mock data successfully seeded to the DB!!");
   } catch (err) {
-    console.error("Error while seeding data", err);
+    console.error("Error in seedDataInitDB", err);
   }
 };
 
