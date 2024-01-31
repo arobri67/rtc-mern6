@@ -11,7 +11,7 @@ const {
 //GET ALL cages from the DB
 const getAllCages = async (req, res) => {
   const cage = await getAllCagesDB();
-  res.status(200).json({ data: cage.sort((a, b) => a.type - b.type) });
+  res.status(200).json({ data: cage });
 };
 
 //GET a cage by ID from DB
@@ -55,7 +55,7 @@ const addMouseToCage = async (req, res) => {
 const deleteCage = async (req, res) => {
   const { id } = req.params;
   deleteCageDB(id);
-  res.status(201).send("Cage deleted successfully");
+  res.status(204).send("Cage deleted successfully");
 };
 
 module.exports = {

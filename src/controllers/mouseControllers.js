@@ -55,7 +55,7 @@ const updateMouseCage = async (req, res) => {
 const deleteMouse = async (req, res) => {
   const { id } = req.params;
   deleteMouseDB(id);
-  res.status(201).send("Mouse deleted successfully");
+  res.status(204).send("Mouse deleted successfully");
 };
 
 module.exports = {

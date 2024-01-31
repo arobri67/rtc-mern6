@@ -21,6 +21,7 @@ app.use("*", (req, res) => {
   res.status(404).send("Error 404, wrong URL request");
 });
 app.use((error, req, res, next) => {
+  console.error(error.stack);
   res.status(500).send("500 Internal server error");
 });
 
