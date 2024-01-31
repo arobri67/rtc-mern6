@@ -10,12 +10,13 @@ const {
 } = require("../controllers/cageControllers");
 const router = express.Router();
 
-//GET
-//ALL
+//GET ALL cages from the DB
 router.get("/", getAllCages);
-//cage by id
+
+//GET a cage by ID from DB
 router.get("/:id", getCageById);
-//all mice in a cage
+
+//GET all mice from on cage grabbed by ID
 router.get("/mice-list/:id", getAllMiceInACage);
 
 //POST create a cage
@@ -23,7 +24,8 @@ router.post("/", createCage);
 
 //PUT update a cage
 router.put("/:id", updateCage);
-//add a mouse to a cage (if it is already in the cage it will be removed)
+
+//PUT add a mouse to a cage grabbed by ID (if it is already in the cage it will be removed). It will also change the cage_id in the corresponding mouse in the Mouse document
 router.put("/add-mouse-to-cage/:id", addMouseToCage);
 
 //DELETE remove a cage
