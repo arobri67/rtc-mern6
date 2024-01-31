@@ -6,7 +6,7 @@ const cageSchema = new mongoose.Schema({
   rack: String,
   type: String,
   diet: String,
-  enrichement: String,
+  enrichment: String,
   mice: [{ type: mongoose.Schema.Types.ObjectId, ref: "Mouse" }],
 });
 

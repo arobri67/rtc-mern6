@@ -51,7 +51,7 @@ npm start
 
   - **URL:** `/mice`
   - **Method:** `POST`
-  - **Body Parameters:**
+  - **Body Parameters:**  
     (minmum one key)
     - `identifier`: mouse number identifier
     - `earPunch`: ear punch identifier
@@ -66,7 +66,7 @@ npm start
 
   - **URL:** `/mice/<mouse-id>`
   - **Method:** `PUT`
-  - **Body Parameters:**
+  - **Body Parameters:**  
     (minmum one key)
     - `identifier`: "mouse number identifier",
     - `earPunch`: "ear punch identifier",
@@ -117,31 +117,31 @@ It is will add or delete the cage_id field of the mouse. At the same time it wil
 
   - **URL:** `/cages`
   - **Method:** `POST`
-  - **Body Parameters:**
+  - **Body Parameters:**  
     (minmum one key)
     `name:` "cage name",
     `location:` "cage location",
     `rack:` "cage rack",
     `type:` "type of cage",
     `diet:` "diet in the cage",
-    `enrichement:` "type of enrichement",
+    `enrichment:` "type of enrichment",
 
 - **Update a cage:**
 
   - **URL:** `/cages/<cage-id>`
   - **Method:** `PUT`
-  - **Body Parameters:**
+  - **Body Parameters:**  
     (minmum one key)
     `name:` "cage name",
     `location:` "cage location",
     `rack:` "cage rack",
     `type:` "type of cage",
     `diet:` "diet in the cage",
-    `enrichement:` "type of enrichement",
+    `enrichment:` "type of enrichment",
 
     - **URL:** `/cages/add-mouse-to-cage/<cage-id>`
     - **Method:** `PUT`
-    - **Body Parameters:**
+    - **Body Parameters:**  
       (minmum one key)
       `name:` "cage name",
       `location:` "cage location",
