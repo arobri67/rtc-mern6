@@ -88,12 +88,13 @@ npm start
   - **Method:** `GET`
 
 - **Update or delete the cage from a mouse:**
-  It is will add or delete the cage_id field of the mouse. At the same time it will update the mice field of the corresponding cage.
   - **URL:** `/mice//update-mouse-cage/<mouse-id>`
   - **Method:** `PUT`
   - **Body Parameters:**
     - `action`: "add" or "delete"
     - `cageId`: "ID of the cage to add or delete"
+
+It is will add or delete the cage_id field of the mouse. At the same time it will update the mice field of the corresponding cage.
 
 #### **Cages Endpoints**
 
@@ -129,6 +130,7 @@ npm start
 
   - **URL:** `/cages/<cage-id>`
   - **Method:** `PUT`
+  - **Body Parameters:**
     (minmum one key)
     `name:` "cage name",
     `location:` "cage location",
@@ -137,17 +139,18 @@ npm start
     `diet:` "diet in the cage",
     `enrichement:` "type of enrichement",
 
-- **URL:** `/cages/add-mouse-to-cage/<cage-id>`
-  It is will add mouse id into the mice of a given cage and update the cage_id of this mouse. If the mouse is already present in the cage, it will be removed and the cage_id of this mouse will be set to null
+    - **URL:** `/cages/add-mouse-to-cage/<cage-id>`
+    - **Method:** `PUT`
+    - **Body Parameters:**
+      (minmum one key)
+      `name:` "cage name",
+      `location:` "cage location",
+      `rack:` "cage rack",
+      `type:` "type of cage",
+      `diet:` "diet in the cage",
+      `enrichement:` "type of enrichement",
 
-  - **Method:** `PUT`
-    (minmum one key)
-    `name:` "cage name",
-    `location:` "cage location",
-    `rack:` "cage rack",
-    `type:` "type of cage",
-    `diet:` "diet in the cage",
-    `enrichement:` "type of enrichement",
+This will add mouse id into the mice of a given cage and update the cage_id of this mouse. If the mouse is already present in the cage, it will be removed and the cage_id of this mouse will be set to null.
 
 - **Delete a cage:**
   - **URL:** `/cages/<cage-id>`
