@@ -159,5 +159,3 @@ It will add mouse id into the mice field of a given cage and update the cage_id 
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvement, please contact me.
-
-If you have any questions or issues, please open an issue.
