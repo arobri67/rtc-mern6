@@ -27,7 +27,6 @@ To run this project, you need to have the following software installed on your m
 git clone https://github.com/your-username/mern6-express-server.git
 cd mern6-express-server
 npm install
-npm i nodemon
 npm start
 ```
 
